@@ -46,7 +46,7 @@ export default function InvoicePage() {
 
   // Items
   const [items, setItems] = useState<InvoiceItem[]>([
-    { id: crypto.randomUUID(), description: '', qty: 1, price: 0 },
+    { id: crypto.randomUUID(), name: '', description: '', qty: 1, price: 0 },
   ]);
 
   // Custom fields
@@ -90,7 +90,7 @@ export default function InvoicePage() {
 
   // Items
   const addItem = () =>
-    setItems(prev => [...prev, { id: crypto.randomUUID(), description: '', qty: 1, price: 0 }]);
+    setItems(prev => [...prev, { id: crypto.randomUUID(), name: '', description: '', qty: 1, price: 0 }]);
   const updateItem = (id: string, field: keyof InvoiceItem, val: string | number) =>
     setItems(prev => prev.map(i => (i.id === id ? { ...i, [field]: val } : i)));
   const removeItem = (id: string) => setItems(prev => prev.filter(i => i.id !== id));
@@ -105,7 +105,7 @@ export default function InvoicePage() {
     setSender(emptyContact);
     setReceiver(emptyContact);
     setLogoSrc(null);
-    setItems([{ id: crypto.randomUUID(), description: '', qty: 1, price: 0 }]);
+    setItems([{ id: crypto.randomUUID(), name: '', description: '', qty: 1, price: 0 }]);
     setCustomFields([]);
     setSections({ company: false, client: false, description: false, payment: false });
     alert('Invoice deleted successfully!');
