@@ -15,13 +15,13 @@ export default function InvoiceCreatePage() {
   const [issueDate, setIssueDate] = useState(new Date().toISOString().split('T')[0]);
   const [dueDate, setDueDate] = useState('');
   const [items, setItems] = useState<InvoiceItem[]>([
-    { id: '1', name: '', qty: 1, price: 0 }
+    { id: '1', description: '', qty: 1, price: 0 }
   ]);
   const [tax, setTax] = useState(0);
   const [discount, setDiscount] = useState(0);
 
   const addItem = () => {
-    setItems([...items, { id: Math.random().toString(36).substr(2, 9), name: '', qty: 1, price: 0 }]);
+    setItems([...items, { id: Math.random().toString(36).substr(2, 9), description: '', qty: 1, price: 0 }]);
   };
 
   const removeItem = (id: string) => {
@@ -112,8 +112,8 @@ export default function InvoiceCreatePage() {
                       <input 
                         className="input-field" 
                         placeholder="Service/Product name"
-                        value={item.name}
-                        onChange={(e) => updateItem(item.id, 'name', e.target.value)}
+                        value={item.description}
+                        onChange={(e) => updateItem(item.id, 'description', e.target.value)}
                       />
                     </div>
                     <div className="col-span-2">

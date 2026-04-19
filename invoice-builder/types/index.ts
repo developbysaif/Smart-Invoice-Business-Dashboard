@@ -16,7 +16,7 @@ export interface ContactInfo {
 
 export interface InvoiceItem {
   id: string;
-  name: string;
+  description: string;
   qty: number;
   price: number;
 }
